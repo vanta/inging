@@ -5,12 +5,16 @@
   "description": "This is extension to make dealing with Moje ING easier.",
   "version": "1.0",
 
-  "browser_action": {
-    "default_icon": "icon.png",
-    "default_popup": "popup.html"
-  },
-  "permissions": [
-    "activeTab",
-    "https://login.ingbank.pl"
-  ]
+  "content_scripts": [
+      {
+        "matches": ["https://login.ingbank.pl/mojeing/app/#transactions-history"],
+        "js": ["history.js"]
+      },
+      {
+        "matches": ["https://login.ingbank.pl/mojeing/app/*"],
+        "js": ["login.js"]
+      }
+    ],
+
+  "permissions": ["tabs", "http://*/*"]
 }
