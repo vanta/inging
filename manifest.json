@@ -13,6 +13,10 @@
       {
         "matches": ["https://login.ingbank.pl/mojeing/app/*"],
         "js": ["login.js"]
+      },
+      {
+        "matches": ["https://online.mbank.pl/pl*"],
+        "js": ["mbank.js"]
       }
     ],
 
