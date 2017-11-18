@@ -3,20 +3,18 @@
 
   "name": "INGing",
   "description": "This is extension to make dealing with Moje ING easier.",
-  "version": "1.0",
+  "version": "0.3",
 
   "content_scripts": [
       {
-        "matches": ["https://login.ingbank.pl/mojeing/app/#transactions-history"],
-        "js": ["history.js"]
-      },
-      {
         "matches": ["https://login.ingbank.pl/mojeing/app/*"],
-        "js": ["login.js"]
+        "js": ["history.js"],
+        "run_at": "document_end"
       },
       {
         "matches": ["https://online.mbank.pl/pl*"],
-        "js": ["mbank.js"]
+        "js": ["mbank.js"],
+        "run_at": "document_end"
       }
     ],
 
