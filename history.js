@@ -40,15 +40,23 @@ function generateDump() {
     var dump = "";
     
     for (var i = 0; i < rows.length; i++) {
+        console.debug("Processing row=", i);
+
         var row = rows[i];
 
         var dateArray = row.getElementsByClassName("transactions-history-list-item_date-timestamp")[0].textContent.split(".");
         var name = row.getElementsByClassName("transactions-history-list-item_name")[0].textContent.trim();
-        var desc = row.getElementsByClassName("transactions-history-list-item_description")[0].textContent.trim();
+
+        var descs = row.getElementsByClassName("transactions-history-list-item_description");
+        var desc = descs.length ? descs[0].textContent.trim() : "";
+
         var amount = getElementByXpath(".//*[contains(@class, 'transactions-history-list-item_amount')]/p[last()]/text()", row).data.trim();
 
-        dump += (dateArray[2] + "-" + dateArray[1] + "-" + dateArray[0] + TAB + amount + TAB + name + " - " +  desc + NL);
+        if (amount[0] == "-") {
+            dump += (dateArray[2] + "-" + dateArray[1] + "-" + dateArray[0] + TAB + amount.substring(1, 20) + TAB + name + (desc ? " - " + desc : "") + NL);
+        }
     }
 
     console.log(dump);
+    prompt("Here's your dump:", dump);
 }
