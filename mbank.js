@@ -7,7 +7,7 @@ if(window.location.href.endsWith("investmentfunds")){
     console.log('state: ' + document.readyState);
 
     if (document.readyState === "complete") {
-      sleep(500).then(() => {
+      sleep(2000).then(() => {
         var rows = document.getElementsByClassName('investment-properties');
         console.log("Rows:", rows.length);
 

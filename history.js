@@ -18,7 +18,7 @@ async function addButton() {
 
     var div = document.createElement("div");
     var button = document.createElement("button");
-    var caption = document.createTextNode("Dump transaction to console");
+    var caption = document.createTextNode("Dump transactions");
 
     button.addEventListener("click", generateDump);
     
