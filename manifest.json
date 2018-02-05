@@ -3,7 +3,7 @@
 
   "name": "INGing",
   "description": "This is extension to make dealing with Moje ING easier.",
-  "version": "1.1.0",
+  "version": "1.1.1",
 
   "content_scripts": [
       {

@@ -19,7 +19,7 @@ if(window.location.href.endsWith("investmentfunds")){
             var actual = actualSpan['innerText'].substring(0, actualSpan['innerText'].length-5).replace(/,/, ".").replace(/\s/g, "");
             var rate = rateSpan['innerText'].substring(0, rateSpan['innerText'].length-5).replace(/,/, ".").replace(/\s/g, "");
 
-            var perc = Number(100 * rate / actual).toFixed(2);
+            var perc = Number(100 * rate / (actual - rate)).toFixed(2);
 
             console.log("Actual:", actual, "rate:", rate, "perc:" , perc, "%");
 
